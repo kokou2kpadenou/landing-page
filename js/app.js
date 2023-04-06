@@ -102,6 +102,22 @@ function main() {
     observer.observe(document.getElementById(section.id));
   });
 
+  // Scroll to anchor ID using scrollTO event
+  const links = document.querySelectorAll(".menu__link");
+
+  links.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      // prevent the default behavior of the anchor
+      event.preventDefault();
+
+      const sectionId = link.getAttribute("href").substring(1);
+
+      document.getElementById(sectionId).scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+  });
+
 }
 
 
