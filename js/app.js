@@ -24,7 +24,9 @@
 */
 
 // Create an empty to store the sections
-const sections = [];
+let sections = [];
+const sectionActiveClassName = "your-active-class";
+const menuItemActiveClassName = "menu-active-class";
 
 
 /**
@@ -32,7 +34,41 @@ const sections = [];
  * Start Helper Functions
  *
 */
+// This function take a list and all the element's isActive property to false execpt the element provide as eltToUpdate
+function updateSections(list, eltToUpdate) {
+  return [...list].map(elt => {
+    const found = elt.id === eltToUpdate;
+    if (elt.isActive !== found)  {
+      elt.isActive = found;
+    }
+    return elt;
+  })
+}
 
+// This function synchronized the dom with the state of sections (data structure)
+function SyncDOM(list, classNameSection, classNameMenuItem){
+
+      [...list].forEach((item) => {
+        const itemElt = document.getElementById(item.id);
+        const menuLnk = document.getElementById(`lnk${item.id}`);
+
+        // if section is active and don't have active class then add active class
+        if (item.isActive && !itemElt.classList.contains(classNameSection)) {
+          // section
+          itemElt.classList.add(classNameSection);
+          // menu
+          menuLnk.classList.add(classNameMenuItem)
+        }
+
+        // if section is not active and has active class then remove the active class
+        if (!item.isActive && itemElt.classList.contains(classNameSection)) {
+          // section
+          itemElt.classList.remove(classNameSection);
+          // menu
+          menuLnk.classList.remove(classNameMenuItem);
+        }
+      })
+}
 
 
 /**
@@ -90,17 +126,8 @@ function main() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("your-active-class");
-        document.getElementById(`lnk${entry.target.id}`).classList.add("menu-active-class");
-        sections.forEach((section) => {
-          if (section.id !== entry.target.id) {
-            const otherSection = document.getElementById(section.id);
-            const otherMenu = document.getElementById(`lnk${section.id}`);
-            console.log(otherMenu);
-            otherSection.classList.remove("your-active-class");
-            otherMenu.classList.remove("menu-active-class");
-          }
-        });
+        sections = updateSections(sections, entry.target.id);
+        SyncDOM(sections, sectionActiveClassName, menuItemActiveClassName);
       }
     });
   }, options);
