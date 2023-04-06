@@ -46,6 +46,9 @@ function main() {
   // Select all section elements in the HTML
   const sectionElts = document.querySelectorAll("section");
 
+  // Get navbar list element
+  const navbarList = document.querySelector("#navbar__list");
+
   sectionElts.forEach((elt) => {
     const id = elt.getAttribute("id");
     const nav = elt.getAttribute("data-nav");
@@ -54,10 +57,27 @@ function main() {
     sections.push({ id, nav, isActive });
   });
 
+  // build the nav
+  sections.forEach((section) => {
+    // Create list item element with class navbar_menu
+    const item = document.createElement("li");
+    item.classList.add("navbar_menu");
+
+    // Create an anchor element with class menu__link
+    const link = document.createElement("a");
+    link.textContent = section.nav;
+    link.setAttribute("href", `#${section.id}`);
+    link.classList.add("menu__link");
+
+    // Add the an anchor element to the list item element as child
+    item.appendChild(link);
+    // Add the list element to the list element
+    navbarList.appendChild(item);
+  });
+
 
 }
 
-// build the nav
 
 
 // Add class 'active' to section when near top of viewport
