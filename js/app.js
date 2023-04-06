@@ -61,11 +61,12 @@ function main() {
   sections.forEach((section) => {
     // Create list item element with class navbar_menu
     const item = document.createElement("li");
-    item.classList.add("navbar_menu");
+    item.classList.add("navbar__menu");
 
     // Create an anchor element with class menu__link
     const link = document.createElement("a");
     link.textContent = section.nav;
+    link.setAttribute("id", `lnk${section.id}`);
     link.setAttribute("href", `#${section.id}`);
     link.classList.add("menu__link");
 
@@ -85,13 +86,16 @@ function main() {
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      // TODO: Apply class to menu elt correcponding to active section
       if (entry.isIntersecting) {
         entry.target.classList.add("your-active-class");
+        document.getElementById(`lnk${entry.target.id}`).classList.add("menu-active-class");
         sections.forEach((section) => {
           if (section.id !== entry.target.id) {
             const otherSection = document.getElementById(section.id);
+            const otherMenu = document.getElementById(`lnk${section.id}`);
+            console.log(otherMenu);
             otherSection.classList.remove("your-active-class");
+            otherMenu.classList.remove("menu-active-class");
           }
         });
       }
