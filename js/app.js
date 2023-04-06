@@ -125,11 +125,20 @@ function main() {
     });
   });
 
+  // To hide the fixed navigation bar while not scrolling
+  const navbar = document.querySelector('.page__header');
+  let pageScrollTimeout = null;
+
+  window.addEventListener('scroll', () => {
+    clearTimeout(pageScrollTimeout);
+    navbar.classList.remove('page__header--hide');
+    pageScrollTimeout = setTimeout(() => {
+      navbar.classList.add('page__header--hide');
+    }, 2000);
+  })
+
 }
 
-
-
-// Scroll to anchor ID using scrollTO event
 
 
 /**
