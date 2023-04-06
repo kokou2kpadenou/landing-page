@@ -69,6 +69,9 @@ function main() {
     link.setAttribute("id", `lnk${section.id}`);
     link.setAttribute("href", `#${section.id}`);
     link.classList.add("menu__link");
+    if (navbarList.childElementCount === 0) {
+      link.classList.add("menu-active-class");
+    }
 
     // Add the an anchor element to the list item element as child
     item.appendChild(link);
