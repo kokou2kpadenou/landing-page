@@ -76,11 +76,34 @@ function main() {
   });
 
 
+  // Add class 'active' to section when near top of viewport
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.8,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      // TODO: Apply class to menu elt correcponding to active section
+      if (entry.isIntersecting) {
+        entry.target.classList.add("your-active-class");
+        sections.forEach((section) => {
+          if (section.id !== entry.target.id) {
+            const otherSection = document.getElementById(section.id);
+            otherSection.classList.remove("your-active-class");
+          }
+        });
+      }
+    });
+  }, options);
+
+  sections.forEach((section) => {
+    observer.observe(document.getElementById(section.id));
+  });
+
 }
 
-
-
-// Add class 'active' to section when near top of viewport
 
 
 // Scroll to anchor ID using scrollTO event
