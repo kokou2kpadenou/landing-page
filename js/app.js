@@ -184,6 +184,18 @@ function main() {
     window.scrollTo({top: 0, behavior: 'smooth'});
   })
 
+  // Section collapsible
+  const collapseBnts = document.querySelectorAll('section button[type="button"]');
+  console.log(collapseBnts);
+
+  collapseBnts.forEach((btn => {
+    btn.addEventListener('click', () => {
+      const section = btn.closest("section");
+      section.classList.toggle('collapsed');
+      btn.textContent = section.classList.contains('collapsed') ? 'Expand' : 'Collapse';
+    })
+  }))
+
 }
 
 
