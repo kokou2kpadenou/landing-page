@@ -164,6 +164,26 @@ function main() {
     }, 2000);
   })
 
+  //
+  const scrollToTop = document.querySelector('.to__top');
+  const hero = document.querySelector('.main__hero');
+
+  const toTopObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        scrollToTop.classList.add('to__top--visible');
+      } else {
+        scrollToTop.classList.remove('to__top--visible');
+      }
+    })
+  }, {root: null, threshold: 0,});
+
+  toTopObserver.observe(hero);
+
+  scrollToTop.addEventListener('click', () => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  })
+
 }
 
 
