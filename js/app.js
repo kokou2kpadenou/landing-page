@@ -25,8 +25,10 @@
 
 // Create an empty to store the sections
 let sections = [];
-const sectionActiveClassName = "your-active-class";
-const menuItemActiveClassName = "menu-active-class";
+// Section active class
+const SECTION_ACTIVE_CLASS = 'your-active-class';
+// Menu item active class
+const MENU_ITEM_ACTIVE_CLASS = 'menu-active-class';
 
 
 /**
@@ -34,7 +36,13 @@ const menuItemActiveClassName = "menu-active-class";
  * Start Helper Functions
  *
 */
-// This function take a list and all the element's isActive property to false execpt the element provide as eltToUpdate
+
+/**
+* @description Set property isActive to true for element with id egal to eltToUpdate and false other elements
+* @param {array} list
+* @param {string} eltToUpdate
+* @returns {array} the list with the updated state
+*/
 function updateSections(list, eltToUpdate) {
   return [...list].map(elt => {
     const found = elt.id === eltToUpdate;
@@ -45,7 +53,12 @@ function updateSections(list, eltToUpdate) {
   })
 }
 
-// This function synchronized the dom with the state of sections (data structure)
+/**
+* @description Update the DOM base on list
+* @param {array} list
+* @param {string} classNameSection
+* @param {string} classNameMenuItem
+*/
 function SyncDOM(list, classNameSection, classNameMenuItem){
 
       [...list].forEach((item) => {
@@ -57,7 +70,7 @@ function SyncDOM(list, classNameSection, classNameMenuItem){
           // section
           itemElt.classList.add(classNameSection);
           // menu
-          menuLnk.classList.add(classNameMenuItem)
+          menuLnk.classList.add(classNameMenuItem);
         }
 
         // if section is not active and has active class then remove the active class
@@ -80,33 +93,33 @@ function SyncDOM(list, classNameSection, classNameMenuItem){
 function main() {
 
   // Select all section elements in the HTML
-  const sectionElts = document.querySelectorAll("section");
+  const sectionElts = document.querySelectorAll('section');
 
   // Get navbar list element
-  const navbarList = document.querySelector("#navbar__list");
+  const navbarList = document.querySelector('#navbar__list');
 
   sectionElts.forEach((elt) => {
-    const id = elt.getAttribute("id");
-    const nav = elt.getAttribute("data-nav");
+    const id = elt.getAttribute('id');
+    const nav = elt.getAttribute('data-nav');
 
-    const isActive = elt.classList.contains("active");
+    const isActive = elt.classList.contains('active');
     sections.push({ id, nav, isActive });
   });
 
   // build the nav
   sections.forEach((section) => {
     // Create list item element with class navbar_menu
-    const item = document.createElement("li");
-    item.classList.add("navbar__menu");
+    const item = document.createElement('li');
+    item.classList.add('navbar__menu');
 
-    // Create an anchor element with class menu__link
-    const link = document.createElement("a");
+    // Create an anchor element with class menu__link, id, href and content
+    const link = document.createElement('a');
     link.textContent = section.nav;
-    link.setAttribute("id", `lnk${section.id}`);
-    link.setAttribute("href", `#${section.id}`);
-    link.classList.add("menu__link");
+    link.setAttribute('id', `lnk${section.id}`);
+    link.setAttribute('href', `#${section.id}`);
+    link.classList.add('menu__link');
     if (navbarList.childElementCount === 0) {
-      link.classList.add("menu-active-class");
+      link.classList.add('menu-active-class');
     }
 
     // Add the an anchor element to the list item element as child
@@ -119,15 +132,17 @@ function main() {
   // Add class 'active' to section when near top of viewport
   const options = {
     root: null,
-    rootMargin: "0px",
+    rootMargin: '0px',
     threshold: 0.8,
   };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
+        // Update the data structure
         sections = updateSections(sections, entry.target.id);
-        SyncDOM(sections, sectionActiveClassName, menuItemActiveClassName);
+        // Update the DOM
+        SyncDOM(sections, SECTION_ACTIVE_CLASS, MENU_ITEM_ACTIVE_CLASS);
       }
     });
   }, options);
@@ -137,17 +152,17 @@ function main() {
   });
 
   // Scroll to anchor ID using scrollTO event
-  const links = document.querySelectorAll(".menu__link");
+  const links = document.querySelectorAll('.menu__link');
 
   links.forEach((link) => {
-    link.addEventListener("click", (event) => {
+    link.addEventListener('click', (event) => {
       // prevent the default behavior of the anchor
       event.preventDefault();
 
-      const sectionId = link.getAttribute("href").substring(1);
+      const sectionId = link.getAttribute('href').substring(1);
 
       document.getElementById(sectionId).scrollIntoView({
-        behavior: "smooth",
+        behavior: 'smooth',
       });
     });
   });
@@ -162,9 +177,9 @@ function main() {
     pageScrollTimeout = setTimeout(() => {
       navbar.classList.add('page__header--hide');
     }, 2000);
-  })
+  });
 
-  //
+  // Add a scroll to top button on the page that’s only visible when the user scrolls below the fold of the page
   const scrollToTop = document.querySelector('.to__top');
   const hero = document.querySelector('.main__hero');
 
@@ -191,7 +206,7 @@ function main() {
   collapseBnts.forEach((btn => {
 
     btn.addEventListener('click', () => {
-      const section = btn.closest("section");
+      const section = btn.closest('section');
       // Collapse / Expand
       section.classList.toggle('collapsed');
       // For accessibility
@@ -212,7 +227,7 @@ function main() {
 */
 
 // Build menu
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   main();
 });
 
