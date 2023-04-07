@@ -71,6 +71,56 @@ section.collapsed p {
 
 /* ---- Module Rules ---- */
 
+/* Collapse button */
+section button svg {
+    width: 1.5em;
+    height: 1.5em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+}
+
+section button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px 12px;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+section button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+section button:hover svg:first-of-type {
+    transform: translateY(2px);
+}
+
+section button:hover svg:last-of-type {
+    transform: translateY(-2px);
+}
+
+section.collapsed button svg:first-of-type {
+    transform: translateY(1.5em);
+}
+
+section.collapsed button svg:last-of-type {
+    transform: translateY(-1.5em);
+}
+
+section.collapsed button:hover svg:first-of-type {
+    transform: translateY(calc(1.5em - 2px));
+}
+
+section.collapsed button:hover svg:last-of-type {
+    transform: translateY(calc(-1.5em + 2px));
+}
+
 /* Navigation Styles*/
 .navbar__menu ul {
     padding-left: 0;

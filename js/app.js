@@ -185,14 +185,19 @@ function main() {
   })
 
   // Section collapsible
+  // Select buttons in sections
   const collapseBnts = document.querySelectorAll('section button[type="button"]');
-  console.log(collapseBnts);
 
   collapseBnts.forEach((btn => {
+
     btn.addEventListener('click', () => {
       const section = btn.closest("section");
+      // Collapse / Expand
       section.classList.toggle('collapsed');
-      btn.textContent = section.classList.contains('collapsed') ? 'Expand' : 'Collapse';
+      // For accessibility
+      btn.setAttribute('aria-label', section.classList.contains('collapsed') ? 'Expand' : 'Collapse');
+      // For hint
+      btn.setAttribute('title', btn.getAttribute('aria-label'));
     })
   }))
 
