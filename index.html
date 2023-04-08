@@ -5,13 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Manipulating the DOM</title>
+  <title>Exploring the Great Outdoors</title>
+  <meta name="description"
+    content="Welcome to Exploring the Great Outdoors where we provide you with the best outdoor experiences!">
   <!-- Load Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@900&family=Merriweather&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@900&family=Merriweather&display=swap"
+    rel="stylesheet">
   <!-- Load Styles -->
   <link href="css/styles.css" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/favicon32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon96x96.png" sizes="96x96">
 </head>
 
 <body>
@@ -25,16 +32,16 @@
   </header>
   <main>
     <header class="main__hero">
-      <h1>Landing Page</h1>
+      <h1>Experience Nature</h1>
     </header>
     <!-- Each Section has an ID (used for the anchor) and
     a data attribute that will populate the li node.
     Adding more sections will automatically populate nav.
     The first section is set to active class by default -->
-    <section id="section1" data-nav="Section 1" class="your-active-class">
+    <section id="section1" data-nav="Hiking" class="your-active-class">
       <div class="landing__container">
         <h2>
-          <span>Section 1</span>
+          <span>Hiking</span>
           <button type="button" title="Collapse" aria-label="Collapse">
             <svg viewBox="0 0 24 24" height="24" width="24">
               <path d="M16.594 8.578l1.406 1.406-6 6-6-6 1.406-1.406 4.594 4.594z"></path>
@@ -45,26 +52,56 @@
           </button>
         </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra
-          dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex.
-          Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum,
-          nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus
-          imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt
-          felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero
-          ultricies molestie semper in tellus. Sed congue et odio sed euismod.
+          Lace up your boots and hit the trails! Our hiking section provides you with everything you need to plan the
+          perfect hike. From beginner-friendly routes to challenging treks, we have a variety of options for all skill
+          levels. Explore the stunning landscapes, breathe in the fresh air, and enjoy the serenity of nature.
         </p>
 
-        <p>
-          Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel
-          luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur
-          porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.
-        </p>
+        <div class="card__set">
+          <a class="card" href="#">
+            <img src="assets/hiking/jake-melara-Yh6K2eTr_FY-unsplash.webp" alt="hiking illustration" loading="lazy">
+            <div class="card__content">
+              <h3>Types of Hiking Trails</h3>
+              <small>We have a wide range of hiking...</small>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <img src="assets/hiking/jon-flobrant-_r19nfvS3wY-unsplash.webp" alt="hiking illustration" loading="lazy">
+            <div class="card__content">
+              <h3>Hiking Gear and Essentials</h3>
+              <small>Before embarking on a hiking...</small>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <img src="assets/hiking/toomas-tartes-Yizrl9N_eDA-unsplash.webp" alt="hiking illustration" loading="lazy">
+            <div class="card__content">
+              <h3>Hiking Safety Tips</h3>
+              <small>Hiking is a thrilling and...</small>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <img src="assets/hiking/ashley-knedler-Pf5Pj7A5ddA-unsplash.webp" alt="hiking illustration"
+              loading="lazy">
+            <div class="card__content">
+              <h3>Hiking Destinations</h3>
+              <small>We showcase some of the...</small>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <img src="assets/hiking/stephen-leonardi-6E6oMx-69Ns-unsplash.webp" alt="hiking illustration"
+              loading="lazy">
+            <div class="card__content">
+              <h3>Hiking Community</h3>
+              <small>Hiking is not just about the...</small>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
-    <section id="section2" data-nav="Section 2">
+    <section id="section2" data-nav="Climbing">
       <div class="landing__container">
         <h2>
-          <span>Section 2</span>
+          <span>Climbing</span>
           <button type="button" title="Collapse" aria-label="Collapse">
             <svg viewBox="0 0 24 24" height="24" width="24">
               <path d="M16.594 8.578l1.406 1.406-6 6-6-6 1.406-1.406 4.594 4.594z"></path>
@@ -75,26 +112,58 @@
           </button>
         </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra
-          dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex.
-          Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum,
-          nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus
-          imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt
-          felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero
-          ultricies molestie semper in tellus. Sed congue et odio sed euismod.
+          If you're looking for a challenge, our climbing section is perfect for you. Scale the heights of mountains,
+          cliffs, and other natural formations. Our experienced climbers provide tips and tricks for beginners and
+          advanced climbers alike. Feel the rush of adrenaline as you conquer the climb and take in breathtaking views
+          from the top.
         </p>
 
-        <p>
-          Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel
-          luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur
-          porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.
-        </p>
+        <div class="card__set">
+          <a class="card" href="#">
+            <img src="assets/climbing/hu-chen-FZ0qzjVF_-c-unsplash.webp" alt="climbing illustration" loading="lazy">
+            <div class="card__content">
+              <h3>Types of Climbing</h3>
+              <small>We offer a variety of climbing...</small>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <img src="assets/climbing/yns-plt-NY1D4Zni7fc-unsplash.webp" alt="climbing illustration" loading="lazy">
+            <div class="card__content">
+              <h3>Gear and Essentials</h3>
+              <small>Climbing requires specialized...</small>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <img src="assets/climbing/jef-willemyns-mluUYXoTotY-unsplash.webp" alt="climbing illustration"
+              loading="lazy">
+            <div class="card__content">
+              <h3>Safety Tips</h3>
+              <small>Climbing is an exhilarating...</small>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <img src="assets/climbing/patrick-hendry-w5hNCbJfX3w-unsplash.webp" alt="climbing illustration"
+              loading="lazy">
+            <div class="card__content">
+              <h3>Destinations</h3>
+              <small>We showcase some of the...</small>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <img src="assets/climbing/sylvain-mauroux-WI8phMvAEMI-unsplash.webp" alt="climbing illustration"
+              loading="lazy">
+            <div class="card__content">
+              <h3>Community</h3>
+              <small>Climbing is not just about...</small>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
-    <section id="section3" data-nav="Section 3">
+    <section id="section3" data-nav="Camping">
       <div class="landing__container">
         <h2>
-          <span>Section 3</span>
+          <span>Camping</span>
           <button type="button" title="Collapse" aria-label="Collapse">
             <svg viewBox="0 0 24 24" height="24" width="24">
               <path d="M16.594 8.578l1.406 1.406-6 6-6-6 1.406-1.406 4.594 4.594z"></path>
@@ -105,27 +174,59 @@
           </button>
         </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra
-          dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex.
-          Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum,
-          nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus
-          imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt
-          felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero
-          ultricies molestie semper in tellus. Sed congue et odio sed euismod.
+          Escape the hustle and bustle of daily life and unwind in nature. Our camping section has all the information
+          you need to plan the perfect camping trip. From selecting the best campsites to packing the essential gear,
+          we've got you covered. Roast marshmallows, stargaze, and bond with your loved ones as you disconnect from
+          technology and reconnect with nature.
         </p>
 
-        <p>
-          Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel
-          luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur
-          porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.
-        </p>
+        <div class="card__set">
+          <a class="card" href="#">
+            <img src="assets/camping/blake-wisz-TcgASSD5G04-unsplash.webp" alt="Camping illustration" loading="lazy">
+            <div class="card__content">
+              <h3>Types of Camping</h3>
+              <small>We provide information on...</small>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <img src="assets/camping/pars-sahin-V7uP-XzqX18-unsplash.webp" alt="Camping illustration" loading="lazy">
+            <div class="card__content">
+              <h3>Gear and Essentials</h3>
+              <small>Having the right gear and...</small>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <img src="assets/camping/tommy-lisbin-2DH-qMX6M4E-unsplash.webp" alt="Camping illustration"
+              loading="lazy">
+            <div class="card__content">
+              <h3>Choosing a Campsite</h3>
+              <small>Selecting the perfect...</small>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <img src="assets/camping/scott-goodwill-y8Ngwq34_Ak-unsplash.webp" alt="Camping illustration"
+              loading="lazy">
+            <div class="card__content">
+              <h3>Campfire Cooking</h3>
+              <small>One of the most enjoyable...</small>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <img src="assets/camping/dominik-jirovsky-re2LZOB2XvY-unsplash.webp" alt="Camping illustration"
+              loading="lazy">
+            <div class="card__content">
+              <h3>Leave No Trace Principles</h3>
+              <small>As outdoor enthusiasts, we...</small>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
     <!-- Add fourth section -->
-    <section id="section4" data-nav="Section 4">
+    <section id="section4" data-nav="Wildlife">
       <div class="landing__container">
         <h2>
-          <span>Section 4</span>
+          <span>Wildlife</span>
           <button type="button" title="Collapse" aria-label="Collapse">
             <svg viewBox="0 0 24 24" height="24" width="24">
               <path d="M16.594 8.578l1.406 1.406-6 6-6-6 1.406-1.406 4.594 4.594z"></path>
@@ -136,25 +237,59 @@
           </button>
         </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra
-          dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex.
-          Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum,
-          nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus
-          imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt
-          felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero
-          ultricies molestie semper in tellus. Sed congue et odio sed euismod.
+          Immerse yourself in the natural world and witness the incredible diversity of wildlife. Our wildlife section
+          provides you with a glimpse into the fascinating lives of animals. From birdwatching to whale watching, our
+          guides offer tips and insights to help you make the most of your wildlife experience. Observe and learn
+          about the magnificent creatures that call our planet home.
         </p>
 
-        <p>
-          Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel
-          luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur
-          porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.
-        </p>
+        <div class="card__set">
+          <a class="card" href="#">
+            <img src="assets/wildlife/redcharlie-redcharlie1-xtvo0ffGKlI-unsplash.webp" alt="Wildlife illustration"
+              loading="lazy">
+            <div class="card__content">
+              <h3>Wildlife Species</h3>
+              <small>We provide information on...</small>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <img src="assets/wildlife/sutirta-budiman-Jgiv1rSIpVM-unsplash.webp" alt="Wildlife illustration"
+              loading="lazy">
+            <div class="card__content">
+              <h3>Bird Watching</h3>
+              <small>Bird watching is a popular...</small>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <img src="assets/wildlife/scott-carroll-favQn8WgRyk-unsplash.webp" alt="Wildlife illustration"
+              loading="lazy">
+            <div class="card__content">
+              <h3>Animal Photography</h3>
+              <small>Capturing wildlife through...</small>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <img src="assets/wildlife/gwen-weustink-I3C1sSXj1i8-unsplash.webp" alt="Wildlife illustration"
+              loading="lazy">
+            <div class="card__content">
+              <h3>Wildlife Conservation</h3>
+              <small>As outdoor enthusiasts, we...</small>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <img src="assets/wildlife/david-clode-nyvR6wbU1ho-unsplash.webp" alt="Wildlife illustration"
+              loading="lazy">
+            <div class="card__content">
+              <h3>Wildlife Watching Ethics</h3>
+              <small>Watching wildlife is a...</small>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
   </main>
   <footer class="page__footer">
-    <p>© Udacity</p>
+    <p>© Udacity, <i>developed by Kokou Kpadenou</i></p>
   </footer>
 
   <button class="to__top"><b>Top</b></button>
