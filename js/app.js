@@ -133,7 +133,7 @@ function main() {
   const options = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.8,
+    threshold: 0.4,
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -168,16 +168,23 @@ function main() {
   });
 
   // To hide the fixed navigation bar while not scrolling
+  const GRACE_PERIOD_HIRE_BARE = 6000;
   const navbar = document.querySelector('.page__header');
   let pageScrollTimeout = null;
 
-  window.addEventListener('scroll', () => {
+  function eventHandlerActiveNavbar() {
     clearTimeout(pageScrollTimeout);
     navbar.classList.remove('page__header--hide');
     pageScrollTimeout = setTimeout(() => {
       navbar.classList.add('page__header--hide');
-    }, 2000);
-  });
+    }, GRACE_PERIOD_HIRE_BARE);
+
+  }
+
+  window.addEventListener('scroll', eventHandlerActiveNavbar);
+
+  const menuBtn = document.querySelector('.menu__button');
+  menuBtn.addEventListener('click', eventHandlerActiveNavbar);
 
   // Add a scroll to top button on the page that’s only visible when the user scrolls below the fold of the page
   const scrollToTop = document.querySelector('.to__top');
