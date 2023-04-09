@@ -202,7 +202,10 @@ section:nth-of-type(even) .card {
     justify-content: right;
 }
 
-.card:visited {
+.card:link,
+.card:visited,
+.card:hover,
+.card:active {
     color: white;
 }
 
