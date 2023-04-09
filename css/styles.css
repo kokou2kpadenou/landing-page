@@ -10,11 +10,24 @@
 
 /* ---- Base Rules ---- */
 body {
-    background: rgb(136, 203, 171);
-    background: linear-gradient(0deg, rgba(136, 203, 171, 1) 0%, rgba(0, 13, 60, 1) 100%);
+    background: linear-gradient(168deg, #af2222, #9bcb59);
+    background-size: 400% 400%;
+    animation: AnimationName 30s ease infinite;
     margin: 0;
     font-family: "Merriweather", serif;
     color: #fff;
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 94% 0%;
+    }
+    50% {
+        background-position: 7% 100%;
+    }
+    100% {
+        background-position: 94% 0%;
+    }
 }
 
 /* Typeography General*/
@@ -26,16 +39,26 @@ h1 {
 
 @media only screen and (min-width: 35em) {
     h1 {
-        font-size: 7em;
+        font-size: 5em;
         margin: 2em 4rem 1em;
     }
 }
 
+@media only screen and (min-width: 48em) {
+    h1 {
+        font-size: 7em;
+    }
+}
+
 h2 {
-    border-bottom: 1px solid #cc1;
+    border-bottom: 1px solid rgba(200, 200, 200, 1);
     font-family: "Oxygen", Sans-Serif;
     font-size: 3em;
     color: #fff;
+}
+
+h3 {
+    margin: 0 0 0.3em 0;
 }
 
 p {
@@ -58,23 +81,66 @@ section {
     min-height: 80vh;
 }
 
+.card__set {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+@media only screen and (min-width: 48em) {
+    .card__set {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.page__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 2rem;
+}
+
+.logo {
+    display: none;
+}
+
+@media only screen and (min-width: 48em) {
+    .page__header {
+        flex-direction: row;
+    }
+}
+
+/* ---- Module Rules ---- */
+/* logo */
+.logo {
+    display: none;
+}
+
+@media only screen and (min-width: 48em) {
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Collapse button */
+section {
+    transition: min-height 0.8s;
+}
 section.collapsed {
     min-height: 0;
 }
 
-section.collapsed p {
+section.collapsed .landing__container > *:not(h2, p) {
     display: none;
 }
 
-/* ---- Module Rules ---- */
-
-/* Collapse button */
-section button svg {
+section button .collapse__icon {
     width: 1.5em;
     height: 1.5em;
-    stroke-width: 0;
-    stroke: currentColor;
-    fill: currentColor;
 }
 
 section button {
@@ -84,6 +150,7 @@ section button {
     flex-direction: column;
     padding: 5px 12px;
     border: none;
+    border-radius: 5px;
     background-color: transparent;
     color: inherit;
     cursor: pointer;
@@ -94,35 +161,76 @@ section button:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-section button:hover svg:first-of-type {
+section button:hover .collapse__icon:first-of-type {
     transform: translateY(2px);
 }
 
-section button:hover svg:last-of-type {
+section button:hover .collapse__icon:last-of-type {
     transform: translateY(-2px);
 }
 
-section.collapsed button svg:first-of-type {
+section.collapsed button .collapse__icon:first-of-type {
     transform: translateY(1.5em);
 }
 
-section.collapsed button svg:last-of-type {
+section.collapsed button .collapse__icon:last-of-type {
     transform: translateY(-1.5em);
 }
 
-section.collapsed button:hover svg:first-of-type {
+section.collapsed button:hover .collapse__icon:first-of-type {
     transform: translateY(calc(1.5em - 2px));
 }
 
-section.collapsed button:hover svg:last-of-type {
+section.collapsed button:hover .collapse__icon:last-of-type {
     transform: translateY(calc(-1.5em + 2px));
+}
+
+/* Card */
+.card {
+    position: relative;
+    border: 2px solid white;
+    padding: 1.8rem;
+    border-radius: 5px 1rem;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    overflow: hidden;
+}
+
+section:nth-of-type(even) .card {
+    justify-content: right;
+}
+
+.card:visited {
+    color: white;
+}
+
+.card:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px 1rem;
+    object-fit: cover;
+    z-index: -1;
+    transition: transform 0.3s;
+}
+
+.card:hover img {
+    transform: scale(1.2);
 }
 
 /* Navigation Styles*/
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
-    text-align: right;
+    text-align: center;
 }
 
 .navbar__menu li {
@@ -131,10 +239,16 @@ section.collapsed button:hover svg:last-of-type {
 
 .navbar__menu .menu__link {
     display: block;
-    padding: 1em;
+    padding: 0.5em;
     font-weight: bold;
     text-decoration: none;
     color: #000;
+}
+
+@media only screen and (min-width: 48em) {
+    .navbar__menu .menu__link {
+        padding: 1.5em;
+    }
 }
 
 .navbar__menu .menu__link:hover {
@@ -157,6 +271,19 @@ section.collapsed button:hover svg:last-of-type {
     transform: translateY(-100%);
 }
 
+.menu__button {
+    top: -6rem;
+    left: 3rem;
+}
+
+.page__header--hide ~ .menu__button {
+    transform: translateY(10rem);
+}
+
+.page__header--hide ~ .menu__button:hover {
+    transform: translateY(10rem) scale(1.2);
+}
+
 /* Footer Styles */
 .page__footer {
     background: #000;
@@ -168,22 +295,35 @@ section.collapsed button:hover svg:last-of-type {
     color: #fff;
 }
 
-/* Scroll to Top Styles */
-.to__top {
+/* floating button */
+.floating__btn {
     position: fixed;
-    bottom: 2rem;
-    right: -5rem;
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.5s;
+    transition: transform 0.4s;
     z-index: 1000;
     cursor: pointer;
     border: none;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.floating__btn:hover {
+    background-color: #333;
+    color: white;
+}
+
+/* Scroll to Top Styles */
+.to__top {
+    bottom: 2rem;
+    right: -5rem;
+}
+
+.to__top:hover {
+    transform: translateX(-8rem) scale(1.2);
 }
 
 .to__top--visible {
@@ -191,6 +331,13 @@ section.collapsed button:hover svg:last-of-type {
 }
 
 /* ---- Theme Rules ---- */
+/* SVG */
+.svg {
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+}
+
 /* Landing Container Styles */
 .landing__container {
     padding: 1em;
@@ -284,6 +431,7 @@ section:nth-of-type(3n + 1) .landing__container::after {
 /* Section Active Styles */
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
 section.your-active-class {
+    border-radius: 2%;
     background: rgb(0, 0, 0);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
 }
@@ -308,6 +456,25 @@ section.your-active-class .landing__container::after {
     }
 }
 
+/* Menu active */
+.menu__link::after {
+    position: absolute;
+    content: "";
+    height: 0;
+    width: 0%;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: currentColor;
+    transition: width 0.5s;
+}
+
 .menu__link.menu-active-class {
-    text-decoration: underline;
+    position: relative;
+    color: #af2222;
+}
+
+.menu__link.menu__link.menu-active-class::after {
+    width: 100%;
+    height: 4px;
 }

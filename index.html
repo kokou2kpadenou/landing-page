@@ -25,11 +25,27 @@
   <!-- HTML Follows BEM naming conventions
   IDs are only used for sections to connect menu achors to sections -->
   <header class="page__header">
+    <!-- Logo -->
+    <a href="/" aria-label="Exploring the Great Outdoors Homepage">
+      <svg class="logo" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="63.539" height="55.074" viewBox="0 0 16.811 14.572">
+        <g fill="#af2222" stroke-width=".818" color="#000">
+          <path d="M-76.53-162.354a5.962 5.962 0 0 1-5.962 5.961 5.962 5.962 0 0 1-5.961-5.961 5.962 5.962 0 0 1 5.961-5.962 5.962 5.962 0 0 1 5.962 5.962z" style="-inkscape-stroke:none" transform="rotate(173.115 -52.46 -92.277) scale(1.22202)"/>
+          <path d="M-76.53-162.354a5.962 5.962 0 1 1-11.923 0 5.962 5.962 0 0 1 11.923 0z" style="-inkscape-stroke:none" transform="rotate(173.115 -52.46 -92.277) scale(1.22202)"/>
+        </g>
+        <path d="M11.568 12.03c-.394-.132-1.328-.561-2.076-.954-1.647-.864-2.45-1.052-3.631-.852-.442.075-1.006.22-1.255.32-.25.102-.465.166-.48.144-.065-.101 1.005-.732 1.562-.92.768-.26 2.51-.299 3.191-.071.274.091 1.162.51 1.972.93.81.419 1.757.846 2.104.949 1.16.341 2.272.178 3.353-.495.277-.172.503-.288.503-.258 0 .117-1.227.94-1.702 1.143-.776.331-2.641.364-3.54.064zM1.113 10.4C3.345 8.595 5.618 6.26 7.26 4.085l.872-1.155.289.545c.159.3.607 1.052.996 1.67l.708 1.124.536-.688.535-.687.329.65c.439.87 1.563 2.543 2.608 3.883.468.6.851 1.113.851 1.139 0 .026-.27-.162-.602-.418-.793-.614-1.869-1.762-2.62-2.798-.605-.832-.608-.835-.808-.611-.243.272-.256.456-.05.689.152.173 2.133 2.718 2.294 2.948.137.195-.97-.608-1.544-1.121-.952-.851-2.143-2.238-3.366-3.918-.175-.24-.182-.236-1.14.841-1.573 1.77-3.042 3.059-4.54 3.986-.841.52-2.339 1.217-2.604 1.212-.052-.001.447-.44 1.11-.976z"/>
+      </svg>
+    </a>
     <nav class="navbar__menu">
       <!-- Navigation starts as empty UL that will be populated with JS -->
       <ul id="navbar__list"></ul>
     </nav>
   </header>
+  <!-- When the header is hide this menu appear to allow user to show the header -->
+  <button class="menu__button floating__btn" title="Show menu">
+    <svg class="svg" viewBox="0 0 24 24" height="24" width="24">
+      <path d="M3 6h18v2.016h-18v-2.016zM3 12.984v-1.969h18v1.969h-18zM3 18v-2.016h18v2.016h-18z"></path>
+    </svg>
+  </button>
   <main>
     <header class="main__hero">
       <h1>Experience Nature</h1>
@@ -43,10 +59,10 @@
         <h2>
           <span>Hiking</span>
           <button type="button" title="Collapse" aria-label="Collapse">
-            <svg viewBox="0 0 24 24" height="24" width="24">
+            <svg class="svg collapse__icon" viewBox="0 0 24 24" height="24" width="24">
               <path d="M16.594 8.578l1.406 1.406-6 6-6-6 1.406-1.406 4.594 4.594z"></path>
             </svg>
-            <svg viewBox="0 0 24 24" height="24" width="24">
+            <svg class="svg collapse__icon" viewBox="0 0 24 24" height="24" width="24">
               <path d="M12 8.016l6 6-1.406 1.406-4.594-4.594-4.594 4.594-1.406-1.406z"></path>
             </svg>
           </button>
@@ -103,10 +119,10 @@
         <h2>
           <span>Climbing</span>
           <button type="button" title="Collapse" aria-label="Collapse">
-            <svg viewBox="0 0 24 24" height="24" width="24">
+            <svg class="svg collapse__icon" viewBox="0 0 24 24" height="24" width="24">
               <path d="M16.594 8.578l1.406 1.406-6 6-6-6 1.406-1.406 4.594 4.594z"></path>
             </svg>
-            <svg viewBox="0 0 24 24" height="24" width="24">
+            <svg class="svg collapse__icon" viewBox="0 0 24 24" height="24" width="24">
               <path d="M12 8.016l6 6-1.406 1.406-4.594-4.594-4.594 4.594-1.406-1.406z"></path>
             </svg>
           </button>
@@ -165,10 +181,10 @@
         <h2>
           <span>Camping</span>
           <button type="button" title="Collapse" aria-label="Collapse">
-            <svg viewBox="0 0 24 24" height="24" width="24">
+            <svg class="svg collapse__icon" viewBox="0 0 24 24" height="24" width="24">
               <path d="M16.594 8.578l1.406 1.406-6 6-6-6 1.406-1.406 4.594 4.594z"></path>
             </svg>
-            <svg viewBox="0 0 24 24" height="24" width="24">
+            <svg class="svg collapse__icon" viewBox="0 0 24 24" height="24" width="24">
               <path d="M12 8.016l6 6-1.406 1.406-4.594-4.594-4.594 4.594-1.406-1.406z"></path>
             </svg>
           </button>
@@ -228,10 +244,10 @@
         <h2>
           <span>Wildlife</span>
           <button type="button" title="Collapse" aria-label="Collapse">
-            <svg viewBox="0 0 24 24" height="24" width="24">
+            <svg class="svg collapse__icon" viewBox="0 0 24 24" height="24" width="24">
               <path d="M16.594 8.578l1.406 1.406-6 6-6-6 1.406-1.406 4.594 4.594z"></path>
             </svg>
-            <svg viewBox="0 0 24 24" height="24" width="24">
+            <svg class="svg collapse__icon" viewBox="0 0 24 24" height="24" width="24">
               <path d="M12 8.016l6 6-1.406 1.406-4.594-4.594-4.594 4.594-1.406-1.406z"></path>
             </svg>
           </button>
@@ -289,10 +305,10 @@
     </section>
   </main>
   <footer class="page__footer">
-    <p>© Udacity, <i>developed by Kokou Kpadenou</i></p>
+    <p>© Udacity, <small><i>by Kokou Kpadenou</i></small></p>
   </footer>
 
-  <button class="to__top"><b>Top</b></button>
+  <button class="to__top floating__btn" title="Back to the top"><b>Top</b></button>
 
   <script src="js/app.js"></script>
 </body>
