@@ -6,6 +6,10 @@
 * [Instructions](#instructions)
 * [Project description](#project-description)
 * [Usage](#usage)
+* [Instructions on how to run the project](instructions-on-how-to-run-the-project)
+* [Technologies used](technologies-used)
+* [Author](author)
+* [Credits](credits)
 * [Dependencies](#dependencies)
 
 ## Summary
@@ -37,6 +41,19 @@ The goal of the project is to encourage people to get outside and explore the na
 1. Hide fixed navigation bar while not scrolling (it should still be present on page load).
 1. Add a scroll to top button on the page that’s only visible when the user scrolls below the fold of the page.
 1. Make sections collapsible.
+
+## Instructions on how to run the project
+
+
+## Technologies used
+
+
+## Author
+
+
+## Credits
+
+
 
 ## Dependencies
 
