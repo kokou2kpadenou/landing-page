@@ -116,6 +116,8 @@ function main() {
     const link = document.createElement('a');
     link.textContent = section.nav;
     link.setAttribute('id', `lnk${section.id}`);
+    // NOTE: The scrollIntoView method is used to scroll sections to the viewport, no need for the href attribute.
+    // But keep it for accessibility and fallback in case javascript is not available.
     link.setAttribute('href', `#${section.id}`);
     link.classList.add('menu__link');
     if (navbarList.childElementCount === 0) {
