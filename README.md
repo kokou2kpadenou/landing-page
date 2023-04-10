@@ -6,7 +6,9 @@
 * [Instructions](#instructions)
 * [Project description](#project-description)
 * [Usage](#usage)
+* [Demo](#demo)
 * [Instructions on how to run the project](instructions-on-how-to-run-the-project)
+* [Deployment](deployment)
 * [Technologies used](technologies-used)
 * [Author](author)
 * [Credits](credits)
@@ -42,18 +44,78 @@ The goal of the project is to encourage people to get outside and explore the na
 1. Add a scroll to top button on the page that’s only visible when the user scrolls below the fold of the page.
 1. Make sections collapsible.
 
+## Demo
+
+You can see a live demo of this project at https://exploring-the-great-outdoors.netlify.app
+
 ## Instructions on how to run the project
 
+To run the project, follow these steps:
+
+1. Download or clone the project repository from the GitHub repository: https://github.com/kokou2kpadenou/landing-page
+
+1. Open the index.html file in your web browser.
+
+1. The landing page should be displayed in your web browser.
+
+That's it! You can now view and interact with the landing page.
+
+## Deployment
+
+This project can be deployed using Netlify.
+
+1. First, create a new repository on your GitHub account by clicking on the "+" icon on the top-right corner of the GitHub homepage and selecting "New repository". Give it a name and description, and create the repository.
+
+2. Next, clone the repository to your local machine using the following command in your terminal:
+
+```
+git clone https://github.com/your-username/your-repo-name.git
+```
+
+3. Once you have cloned the repository, navigate into the project directory:
+
+```
+cd your-repo-name
+```
+
+4. Now, you need to create a Netlify account (if you haven't already) and log in to your account. Once you're logged in, click on the "New site from Git" button on your dashboard.
+
+5. Select GitHub as your Git provider and choose the repository you just created. Netlify will then ask you to provide a build command and the directory to publish. For this project, the build command is not necessary as it is a static website. In the "Publish directory" field, enter ./ (which means the current directory).
+
+6. Click "Deploy site" and wait for Netlify to build and deploy your website. Once it's done, you'll see a live URL for your site that you can share with others.
+
+7. Anytime you make changes to your website and push them to the GitHub repository, Netlify will automatically rebuild and redeploy the site.
+
+You can find more detailed instructions on deploying a site with Netlify in the official Netlify documentation: https://docs.netlify.com/site-deploys/create-deploys
 
 ## Technologies used
 
+This project was developed using the following technologies:
+
+- HTML
+- CSS
+- JavaScript
+
+### HTML
+HTML (HyperText Markup Language) was used to create the structure of the web pages, including defining the content, headings, paragraphs, images, and links.
+
+### CSS
+CSS (Cascading Style Sheets) was used to style the HTML elements, including defining the colors, fonts, layouts, and responsive design of the web pages.
+
+### JavaScript
+JavaScript was used to add interactivity and functionality to the web pages, including creating animations, handling user interactions, and dynamically updating the content of the pages. It was also used to interact with APIs and manipulate the Document Object Model (DOM) of the web pages.
 
 ## Author
 
+This project was created by Kokou Kpadenou as part of the Udacity Frontend Developer Nanodegree through the Bertelsmann Next Generation Tech Booster Scholarship Program.
+
+You can find more about Kokou Kpadenou on his [GitHub profile](https://www.github.com/kokou2kpadenou).
 
 ## Credits
 
-
+- Starter code provided by Udacity: https://github.com/udacity/fend/tree/refresh-2019/projects/landing-page
+- Images used in the project were obtained from Unsplash: https://unsplash.com/
+- The project was completed by Kokou Kpadenou as part of the Udacity Frontend Developer Nanodegree through the Bertelsmann Next Generation Tech Booster Scholarship Program.
 
 ## Dependencies
 
