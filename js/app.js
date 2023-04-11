@@ -172,7 +172,10 @@ function main() {
   // To hide the fixed navigation bar while not scrolling
   const GRACE_PERIOD_HIRE_BARE = 6000;
   const navbar = document.querySelector('.page__header');
+  const progress = document.querySelector('.page__progress circle');
+  const STROKE_DASHARRARY = 283;
   let pageScrollTimeout = null;
+
 
   function eventHandlerActiveNavbar() {
     clearTimeout(pageScrollTimeout);
@@ -181,6 +184,17 @@ function main() {
       navbar.classList.add('page__header--hide');
     }, GRACE_PERIOD_HIRE_BARE);
 
+    let scrollTop = window.scrollY;
+    let docHeight = document.body.offsetHeight;
+    let winHeight = window.innerHeight;
+    let scrollPercent = scrollTop / (docHeight - winHeight);
+    let scrollPercentRounded = Math.round(scrollPercent * 100);
+
+    if (scrollPercentRounded > 100) {
+      scrollPercentRounded = 100;
+    }
+
+    progress.style.strokeDashoffset = STROKE_DASHARRARY - (STROKE_DASHARRARY * scrollPercentRounded / 2) / 100
   }
 
   window.addEventListener('scroll', eventHandlerActiveNavbar);
